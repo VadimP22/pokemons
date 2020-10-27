@@ -2,7 +2,7 @@
 <project name="lab2" default="run">
     <target name="compile">
         <mkdir dir="build/classes"/>
-        <javac destdir="build/classes" includeantruntime="false" classpath="./Pokemon.jar">
+        <javac target="1.8" destdir="build/classes" includeantruntime="false" classpath="./Pokemon.jar">
             <src path="."/>
         </javac>
     </target>

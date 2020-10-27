@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project name="lab2" default="run">
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac destdir="build/classes" includeantruntime="false" classpath="./Pokemon.jar">
+            <src path="."/>
+        </javac>
+    </target>
+    <target name="run" depends="compile">
+        <java classname="Main" classpath="build/classes:./Pokemon.jar"/>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+        <delete file="lab2.jar"/>
+    </target>
+    <target name="package" depends="compile">
+    <jar destfile="lab2.jar" basedir="build/classes">
+        <zipgroupfileset dir="." includes="Pokemon.jar" />
+        <manifest>
+            <attribute name="Main-Class" value="Main"/>
+        </manifest>
+    </jar>
+</target>
+</project>
